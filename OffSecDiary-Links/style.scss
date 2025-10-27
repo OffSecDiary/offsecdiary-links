@@ -1,0 +1,235 @@
+// =======================================
+// OffSecDiary Link-in-Bio Cyber Theme
+// =======================================
+
+$bg-color: #050507;
+$primary: #ff1e4e;
+$text-color: #e6eef8;
+$font-stack: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+// ========== RESET ==========
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+// ========== BODY ==========
+body {
+  font-family: $font-stack;
+  background:
+    linear-gradient(rgba(5, 5, 7, 0.96), rgba(5, 5, 7, 0.96)),
+    url("logo.png") no-repeat center center / cover;
+  background-attachment: fixed;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  padding: 32px;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("logo.png") no-repeat center center / 70%;
+  opacity: 0.08;
+  filter: blur(20px) brightness(1.5);
+  z-index: 0;
+  pointer-events: none;
+}
+
+// ========== CARD ==========
+.card {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(255, 30, 78, 0.15);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+  transition: all 0.25s ease;
+  margin: 2px auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+
+  &:hover {
+    box-shadow: 0 0 60px rgba(255, 30, 78, 0.25);
+  }
+}
+
+// ========== HEADER ==========
+header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(255, 30, 78, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+  }
+
+  h1 {
+    font-size: 22px;
+    color: $text-color;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 30, 78, 0.4);
+    animation: glowPulse 3s infinite ease-in-out;
+    margin-bottom: 2px;
+  }
+
+  .lead {
+    color: #b9d3e6;
+    opacity: 0.8;
+    font-size: 13px;
+  }
+}
+
+// ========== INTRO SECTION ==========
+.intro {
+  margin-bottom: 22px;
+  p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #cde3f7;
+    text-align: justify;
+  }
+
+  .highlight {
+    color: $primary;
+    font-weight: 600;
+  }
+}
+
+// ========== LINKS ==========
+.links {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+
+  .btn {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: $text-color;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(255, 30, 78, 0.4);
+      background: rgba(255, 30, 78, 0.12);
+
+      &::before {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255, 30, 78, 0.3), transparent 70%);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      z-index: 0;
+    }
+
+    .emoji { font-size: 18px; z-index: 2; }
+    span { z-index: 2; }
+  }
+}
+
+// ========== SOCIALS ==========
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+
+  a {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: $text-color;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: rgba(255, 30, 78, 0.15);
+      box-shadow: 0 0 15px rgba(255, 30, 78, 0.4);
+    }
+  }
+}
+
+// ========== FOOTER ==========
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #8fa9c3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ========== ANIMATIONS ==========
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px rgba(255, 30, 78, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 30, 78, 0.8); }
+}
+
+// ========== RESPONSIVE ==========
+@media (max-width: 480px) {
+  .card {
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  header .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn {
+    padding: 12px;
+  }
+  .intro p {
+    font-size: 14px;
+  }
+}
